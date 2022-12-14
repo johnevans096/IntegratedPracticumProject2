@@ -30,6 +30,16 @@ class Unicorn:
         print(growth_company)
         return growth_company
 
+    def get_investors(self) -> list:
+        investors_top10 = []
+        i = 0
+        for _, _, _, _, _, investors in self.unicorn_info:
+            if i<10:
+                investors_top10.append(investors)
+                i = i+1
+        print(set(sorted(investors_top10)))
+        return (set(sorted(investors_top10)))
+
 
     def __str__(self):
         """Create string representation of data."""
@@ -698,6 +708,7 @@ def main():
     print(unicorn_data)
     Unicorn.get_valuation(Unicorn.create_standard_dataset())
     Unicorn.get_growth(Unicorn.create_standard_dataset())
+    Unicorn.get_investors(Unicorn.create_standard_dataset())
 
 
 if __name__ == '__main__':
