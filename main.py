@@ -40,6 +40,13 @@ class Unicorn:
         print(set(sorted(investors_top10)))
         return (set(sorted(investors_top10)))
 
+    def get_count(self) -> dict:
+        count = {}
+        for company, _, _, country, _, _ in self.unicorn_info:
+            count[country] = len(company)
+        print(count)
+        return count
+
 
     def __str__(self):
         """Create string representation of data."""
@@ -709,6 +716,7 @@ def main():
     Unicorn.get_valuation(Unicorn.create_standard_dataset())
     Unicorn.get_growth(Unicorn.create_standard_dataset())
     Unicorn.get_investors(Unicorn.create_standard_dataset())
+    Unicorn.get_count(Unicorn.create_standard_dataset())
 
 
 if __name__ == '__main__':
